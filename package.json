@@ -12,8 +12,8 @@
     "verify": "npx hardhat verify --network kovan 0x79C73E62a810Cc47F83DE3b43a7B09DAA1731BaB"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Lucas Cullen / MODADAO",
+  "license": "CC0-1.0",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-etherscan": "^2.1.8",
