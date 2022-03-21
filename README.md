@@ -6,25 +6,25 @@ MODADAO have developed a novel way to persist the fingerprint of tracks on the b
 ## Contracts
 The smart contract stores the values in a key value pair, with x being the dependent variable and a collection of y values as the independent vairable.
 
-Eg:  Given the following pair of values:
+Eg:  Given the following pair of values `HYDRA_10.json`:
 
 ```text
-    x = [1, 2, 2, 2, 5]
-    y = [1, 131, 17, 95, 2]
+    x = [1, 3, 3, 6, 6, 6, 6]
+    y = [67, 212, 226, 89, 100, 181, 199]
 ```
 
 | Key (x) | Value (collection of y) |
 | --- | --- |
-| 1 | [1] |
-| 2 | [131, 17, 95] |
-| 5 | [2] |
+| 1 | [67] |
+| 3 | [212, 226] |
+| 6 | [89, 100, 181, 199] |
 
 Therefore:
 
 ```text
-1 => 1
-2 => 131, 17, 95
-5 => 2
+1 => 67
+3 => 212, 226
+6 => 89, 100, 181, 199
 ```
 
 The smart contract will store the following values:
@@ -33,16 +33,30 @@ The smart contract will store the following values:
 {
     "shape": [
         255,
-        4418
+        2374
     ],
     "coords": {
         "x": [
-            0,
             1,
-            28,
-            29,
+            3,
+            3,
+            6,
+            6,
+            6,
+            6
+        ],
+        "y": [
+            67,
+            212,
+            226,
+            89,
+            100,
+            181,
+            199
+        ]
+    }
+}
 ```
-
 
 ## API
 
@@ -50,19 +64,30 @@ A NodeJS / Typescript / Express API has been developed to interact with the smar
 
 ### GET
 
-Querystring paramaters
+To retrieve the JSON object off chain via, the api use the following wuerystring paramaters:
+
 * ID: The ID of the NFT to query
 * Address:  The address of the NFT to query `0x5FfFA5E56A57B3864A105e1afE9DfF886cf5756b`
 
+```bash
+curl --location --request GET 'http://localhost:3000?contract=0x5FfFA5E56A57B3864A105e1afE9DfF886cf5756b&id=0x4688174a2d788ed969a32d3af25132cb48a45a4d10982c7f1f21b93067057b2a'
+```
+
 ### POST
 
+To add a fingerprint to the smart contract, 
+
+```bash
+curl --location --request POST 'http://localhost:3000?address=0x79c73e62a810cc47f83de3b43a7b09daa1731bab&chunk=40&id=0xd7a297382315cb9e956ee85d078619899e6c72e87038a53715bf5d91319b2702' \
+--header 'Content-Type: application/json' \
+--data-raw '{"{"shape":[255,2374],"coords":{"x":[1,3,3,6,6,6,6],"y":[67,212,226,89,100,181,199]}}'
+```
 
 ## References
 
 ### Sample data
 
-
-
+Sample output files can be found in the `data` folder.
 
 Metadata as numbers deployed to: `0x5FfFA5E56A57B3864A105e1afE9DfF886cf5756b`
 
