@@ -34,10 +34,9 @@ app.get("/", async (req, res) => {
   // const metadata = await contract.metadata(id);
 
   const result = {
-    // shape: [meta.shape_x, metadata.shape_y],
     coords: {
-      x: points.map((point) => point[0]),
       y: points.map((point) => point[1]),
+      x: points.map((point) => point[0]),
     },
     title: "Hydra",
     artist: "ROBY",
