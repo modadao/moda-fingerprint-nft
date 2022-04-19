@@ -65,7 +65,7 @@ Example JSON (Abstract from `HYDRA_10.json`):
 
 ## API
 
-A NodeJS / Typescript / Express API has been developed to interact with the smart contract.  It abstracts the smart contract function calls, and re-hydrates the data in the the original JSON format. 
+A NodeJS / Express API has been developed to interact with the smart contract.  It abstracts the smart contract function calls, and re-hydrates the data in the the original JSON format. 
 
 ### GET
 
