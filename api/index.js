@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
   const id = req.query.id;
   console.log(address);
 
-  const rpcUrl = process.env.KOVAN_URL;
+  const rpcUrl = process.env.NODE;
   console.log(rpcUrl);
 
   const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
