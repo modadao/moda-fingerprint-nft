@@ -37,6 +37,7 @@ contract MetadataAsNumbers {
 
         for (uint256 i = 0; i < x.length; i++) {
             uint32 _x_value = x[i];
+            require(y_map[id][_x_value].length == 0, "x value already exists");
             x_array[id].push(_x_value);
             y_map[id][_x_value] = y[i];
 
